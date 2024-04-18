@@ -33,3 +33,22 @@ console.log(arr.find((t) => {
     console.log(t.name);
     return (t.name + "").startsWith("N");
 }));
+
+console.log(arr.map(t => (t.name + "")));
+console.log(arr.map(t => t.age).reduce((prev, curr, index) => {
+    console.log("prev: ", prev + " curr: ", curr + " index: ", index);
+    return (prev * (index + 1) + curr) / (index + 2);
+}, 1));
+
+arr = [[1, 2], [3, 4], [6, 2, 6, 3, 10, 3]];
+flatArr = arr.reduce((prev, curr) => {
+    return prev.concat(curr);
+}, []);
+console.log(flatArr);
+
+let i = 0;
+console.log(arr.flat().sort((a, b) => {
+    i++;
+    return a - b;
+}));
+console.log(i);
